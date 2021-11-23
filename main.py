@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 
-from routers import route_todo
+from routers import route_auth, route_todo
 from schemas import SuccessMsg
 
 app = FastAPI()
 app.include_router(route_todo.router)
+app.include_router(route_auth.router)
 
 
 @app.get("/", response_model=SuccessMsg)
